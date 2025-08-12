@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Khan — Love and War | Field Manual (2025)</title>
+  <meta name="description" content="A comprehensive, visual field manual for effectively running Khan — Love and War (v2 ZP). Staged protocol, safety, concrete habits, and ethical dominance.">
+  <style>
+    :root{
+      --bg:#0b0b10;
+      --panel:#11131a;
+      --panel-2:#151826;
+      --ink:#e9ecf1;
+      --ink-2:#c7ccdb;
+      --muted:#9aa2b1;
+      --gold:#e6b85c;
+      --crimson:#c0392b;
+      --emerald:#2ecc71;
+      --accent:#6c8cf5;
+      --line:#1f2433;
+      --ok:#3ddc97;
+      --warn:#ffb020;
+      --bad:#ff5a5f;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.55}
+    a{color:var(--gold);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:20px}
+    header.hero{
+      background: radial-gradient(1200px 500px at 70% -10%, rgba(108,140,245,.15), transparent),
+                  radial-gradient(800px 400px at 20% 10%, rgba(192,57,43,.18), transparent),
+                  linear-gradient(180deg, #0b0b10, #0b0b10);
+      border-bottom:1px solid var(--line);
+    }
+    .hero .title{
+      display:flex;gap:18px;align-items:center;flex-wrap:wrap;padding:24px 0;
+    }
+    .badge{display:inline-flex;align-items:center;gap:10px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);color:var(--ink-2);font-size:13px}
+    h1{font-size:28px;line-height:1.2;margin:0}
+    h2{font-size:22px;margin:20px 0 8px}
+    h3{font-size:18px;margin:16px 0 8px;color:var(--ink)}
+    p{margin:8px 0;color:var(--ink-2)}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    @media (min-width:900px){
+      .grid.cols-2{grid-template-columns:1fr 1fr}
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    }
+    .card{
+      background:linear-gradient(180deg, var(--panel), var(--panel-2));
+      border:1px solid var(--line);border-radius:14px;padding:16px;
+      box-shadow:0 0 0 rgba(0,0,0,0);
+    }
+    .card.tight{padding:12px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:rgba(255,255,255,.03);color:var(--ink-2)}
+    nav.sticky{
+      position:sticky;top:0;background:rgba(11,11,16,.8);backdrop-filter:blur(8px);z-index:5;border-bottom:1px solid var(--line)
+    }
+    nav .navwrap{max-width:1100px;margin:0 auto;padding:10px 20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    nav a{color:var(--ink-2);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
+    nav a:hover{background:rgba(255,255,255,.06)}
+    .kpi{display:flex;gap:10px;align-items:center}
+    .kpi .dot{width:10px;height:10px;border-radius:50%}
+    .ok{background:var(--ok)}
+    .warn{background:var(--warn)}
+    .bad{background:var(--bad)}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#18203a,#141A2E);color:var(--ink);border:1px solid var(--line);padding:8px 12px;border-radius:10px}
+    .btn:active{transform:translateY(1px)}
+    .btn.gold{background:linear-gradient(180deg,#2a2316,#1d1911);border-color:#3a2f18}
+    .btn.crimson{background:linear-gradient(180deg,#311817,#261211);border-color:#3c1917}
+    .list li{margin:6px 0}
+    .callout{
+      border-left:3px solid var(--gold);padding:8px 12px;background:rgba(230,184,92,.06);border-radius:8px;color:#f3e6c8
+    }
+    .danger{border-left:3px solid var(--bad);background:rgba(255,90,95,.06);color:#ffd8d8}
+    .success{border-left:3px solid var(--ok);background:rgba(61,220,151,.06);color:#d7ffea}
+    .stage-header{display:flex;gap:12px;align-items:center}
+    .stage-title{font-weight:700}
+    .timeline{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .step{display:flex;align-items:center;gap:8px}
+    .step .circle{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#151826;border:1px solid var(--line);color:var(--ink)}
+    .step.active .circle{background:linear-gradient(180deg,#2d2135,#1c1928);border-color:#3a2d46;color:#f3e6ff}
+    .step.complete .circle{background:linear-gradient(180deg,#163224,#101d17);border-color:#235b45;color:#caffea}
+    .separator{width:24px;height:2px;background:var(--line)}
+    .svgwrap{width:100%;height:auto}
+    .checklist label{display:flex;gap:10px;align-items:flex-start;padding:8px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02);cursor:pointer}
+    .checklist input{margin-top:4px}
+    .kbd{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:2px 6px;background:rgba(255,255,255,.05);font-family:ui-monospace, SFMono-Regular, Menlo, monospace;font-size:12px;color:var(--ink)}
+    .footer{color:var(--muted);font-size:13px;margin:30px 0;text-align:center}
+    /* Radar */
+    .radar{width:100%;max-width:520px;margin:0 auto}
+    .flex{display:flex;gap:16px;align-items:stretch;flex-wrap:wrap}
+    .sliders{min-width:240px;flex:1}
+    .sliders .row{display:flex;align-items:center;gap:8px;margin:8px 0}
+    input[type="range"]{width:100%}
+    .small{font-size:12px;color:var(--muted)}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    /* Print */
+    @media print {
+      nav.sticky{display:none}
+      .btn{display:none}
+      a{text-decoration:none;color:inherit}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="title">
+        <svg class="svgwrap" width="80" height="80" viewBox="0 0 120 120" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#e6b85c"/>
+              <stop offset="1" stop-color="#8a6a2e"/>
+            </linearGradient>
+          </defs>
+          <!-- Stylized Khan helm -->
+          <circle cx="60" cy="60" r="58" fill="none" stroke="#2b2f42" stroke-width="2"/>
+          <path d="M60 18 C45 18 34 30 30 48 L24 78 L96 78 L90 48 C86 30 75 18 60 18 Z" fill="url(#g1)" stroke="#4b3b19" stroke-width="2"/>
+          <rect x="46" y="53" width="28" height="20" rx="3" fill="#0b0b10" stroke="#e6b85c" stroke-width="2"/>
+          <path d="M36 78 L84 78 L78 92 L42 92 Z" fill="#1c1f2c" stroke="#2b2f42"/>
+          <circle cx="60" cy="44" r="6" fill="#c0392b"/>
+        </svg>
+        <div>
+          <h1>Khan — Love and War: Field Manual (2025)</h1>
+          <div class="chips">
+            <span class="chip">Zero Point (ZP) Technology</span>
+            <span class="chip">4 Stages • 21+ days each</span>
+            <span class="chip">18+ only</span>
+            <span class="chip">Dominance • Status • Sexuality • Action</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <p>Use this manual to plan, run, and integrate Khan v2 effectively. It synthesizes the program’s intent and structure you provided—Stage I: Total Breakdown, Stage II: Total Reprogramming, Stage III: Total Action, Stage IV: Khan Complete—into a practical, ethical, and trackable approach.</p>
+          <div class="callout" role="note">
+            <strong>Important:</strong> Read the included Zero Point (ZP) instruction manual before listening. Run stages in order, minimum 21 days each. Do not jump stages.
+          </div>
+        </div>
+        <div class="card">
+          <div class="timeline" aria-label="Stages timeline">
+            <div class="step active"><div class="circle">I</div><div>Breakdown</div></div>
+            <div class="separator"></div>
+            <div class="step"><div class="circle">II</div><div>Reprogram</div></div>
+            <div class="separator"></div>
+            <div class="step"><div class="circle">III</div><div>Action</div></div>
+            <div class="separator"></div>
+            <div class="step"><div class="circle">IV</div><div>Complete</div></div>
+          </div>
+          <p class="muted small">Plan for at least one full cycle: ~12 weeks (21+ days per stage). You can repeat the 4-stage process for deeper gains.</p>
+          <button class="btn gold" onclick="window.print()">Print / Save PDF</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sticky" aria-label="Section navigation">
+    <div class="navwrap">
+      <a href="#fit">Fit & Ethos</a>
+      <a href="#setup">Setup & Safety</a>
+      <a href="#protocol">Listening Protocol</a>
+      <a href="#stages">The Four Stages</a>
+      <a href="#dominance">Dominance, Ethically</a>
+      <a href="#troubleshoot">Troubleshooting</a>
+      <a href="#tools">Tools & Checklists</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <!-- Section: Fit & Ethos -->
+    <section id="fit" class="grid cols-2">
+      <div class="card">
+        <h2>1) What Khan Is</h2>
+        <ul class="list">
+          <li>A high-intensity, staged subliminal designed to cultivate sexual and social dominance, status, authority, ambition, drive, and resilience.</li>
+          <li>It aims to first dismantle limiting patterns (Stage I), then rebuild identity (Stage II), enforce decisive execution (Stage III), and integrate it all (Stage IV).</li>
+          <li>Expect tests. The copy explicitly warns: it will be challenging, polarizing, and not for the faint-hearted.</li>
+        </ul>
+        <h3>What Khan Is Not</h3>
+        <ul class="list">
+          <li>Not a passive “wishful thinking” tool. It emphasizes action, leadership, and responsibility.</li>
+          <li>Not an excuse for coercion, manipulation, or boundary violations. Consent and ethics are non-negotiable.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>2) The Ethos in One Diagram</h2>
+        <svg class="svgwrap" viewBox="0 0 600 320" role="img" aria-label="Dominance formula hexagon diagram">
+          <defs>
+            <linearGradient id="hex" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#6c8cf5"/>
+              <stop offset="1" stop-color="#2a3a7d"/>
+            </linearGradient>
+            <linearGradient id="hex2" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#e6b85c"/>
+              <stop offset="1" stop-color="#8a6a2e"/>
+            </linearGradient>
+          </defs>
+          <!-- Hex frame -->
+          <g transform="translate(300,160)">
+            <polygon points="0,-120 104,-60 104,60 0,120 -104,60 -104,-60" fill="none" stroke="#2b2f42" stroke-width="3"/>
+            <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45" fill="url(#hex)" opacity="0.18" stroke="#394166"/>
+            <text x="0" y="-138" text-anchor="middle" fill="#c7ccdb" font-size="16">Khan-Style Dominance</text>
+            <text x="0" y="8" text-anchor="middle" fill="#f0f2f8" font-size="18" font-weight="700">Calm Authority</text>
+            <text x="0" y="28" text-anchor="middle" fill="#c7ccdb" font-size="12">Self-mastery • Clear intent • Ethical leadership</text>
+            <!-- Labels -->
+            <text x="0" y="-105" text-anchor="middle" fill="#e6b85c" font-size="13">Self-regulation</text>
+            <text x="98" y="-40" text-anchor="start" fill="#e6b85c" font-size="13">Clarity</text>
+            <text x="98" y="52" text-anchor="start" fill="#e6b85c" font-size="13">Initiative</text>
+            <text x="0" y="132" text-anchor="middle" fill="#e6b85c" font-size="13">Boundaries</text>
+            <text x="-98" y="52" text-anchor="end" fill="#e6b85c" font-size="13">Competence</text>
+            <text x="-98" y="-40" text-anchor="end" fill="#e6b85c" font-size="13">Warmth</text>
+          </g>
+          <!-- Caption -->
+          <rect x="24" y="260" width="552" height="44" rx="8" fill="rgba(61,220,151,.08)" stroke="#235b45"/>
+          <text x="48" y="285" fill="#d7ffea" font-size="14">Formula: Dominance = Self-regulation + Clarity + Initiative + Boundaries + Competence + Warmth.</text>
+        </svg>
+        <p class="small muted">This reflects the title’s emphasis on power with responsibility, not aggression.</p>
+      </div>
+    </section>
+
+    <!-- Section: Setup & Safety -->
+    <section id="setup" class="grid cols-2">
+      <div class="card">
+        <h2>3) Setup & Safety (Zero Point)</h2>
+        <ul class="list">
+          <li><strong>Read the included ZP manual first.</strong> Follow its schedule, rest days, and volume guidance.</li>
+          <li><strong>18+ only.</strong> The publisher explicitly restricts usage to adults.</li>
+          <li><strong>Run stages in order.</strong> Minimum 21 days each. Skipping ahead reduces effectiveness.</li>
+          <li><strong>Don’t stack other subliminals</strong> while running Khan v2 unless the manual explicitly permits.</li>
+          <li><strong>Comfortable volume.</strong> Never strain your ears. Sleep listening only if allowed by the ZP instructions.</li>
+          <li><strong>Support system ready.</strong> Stage I can surface heavy emotions. Line up journaling, movement, and access to counseling/therapy if needed.</li>
+        </ul>
+        <div class="danger">
+          <strong>Honesty check:</strong> If you’re doubting your capacity to face inner resistance, wait. This title is intentionally intense.
+        </div>
+      </div>
+      <div class="card">
+        <h2>4) Quick Start Checklist</h2>
+        <div class="checklist" id="qs">
+          <label><input type="checkbox" data-key="qs-read"> Read the ZP instruction manual completely.</label>
+          <label><input type="checkbox" data-key="qs-schedule"> Block 30–60 minutes daily for listening (per ZP manual).</label>
+          <label><input type="checkbox" data-key="qs-journal"> Create a 5‑minute daily journal template.</label>
+          <label><input type="checkbox" data-key="qs-rest"> Add weekly rest days per ZP guidance.</label>
+          <label><input type="checkbox" data-key="qs-support"> Identify 1–2 supportive people and a counseling option.</label>
+          <label><input type="checkbox" data-key="qs-environment"> Clean your space; remove obvious distractions.</label>
+        </div>
+        <p class="small muted">Your checklist progress is saved locally in your browser.</p>
+      </div>
+    </section>
+
+    <!-- Section: Listening Protocol -->
+    <section id="protocol" class="grid cols-2">
+      <div class="card">
+        <h2>5) Listening Protocol</h2>
+        <ul class="list">
+          <li><strong>Stage order & duration:</strong> I → II → III → IV, each for at least 21 days. Consider a full ~12–16 week cycle.</li>
+          <li><strong>Daily sessions:</strong> Follow the ZP manual for loop count and rest days. If reconciliation (emotional turbulence) spikes, reduce according to the manual.</li>
+          <li><strong>Environment:</strong> Listen when you can be still or doing low-cognitive tasks. Avoid multitasking that fractures attention.</li>
+          <li><strong>Journal anchor (3–5 min):</strong> Note mood, resistance, insights, and one concrete action for the day.</li>
+          <li><strong>Action pairing:</strong> Khan’s design expects action. Pair each listening day with at least one decisive step (even tiny).</li>
+        </ul>
+        <div class="callout">
+          <strong>Publisher claims (Stage I):</strong> Total Breakdown aims to dismantle limiting beliefs and purge unhelpful prior subliminal programming while preserving helpful material.
+        </div>
+      </div>
+      <div class="card">
+        <h2>6) The Reconciliation Curve</h2>
+        <svg class="svgwrap" viewBox="0 0 640 240" role="img" aria-label="Reconciliation intensity over days">
+          <defs>
+            <linearGradient id="curve" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#ff5a5f"/>
+              <stop offset="1" stop-color="#ffb020"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="640" height="240" fill="#0e1220" stroke="#1f2433"/>
+          <g transform="translate(40,20)">
+            <line x1="0" y1="200" x2="580" y2="200" stroke="#2b2f42"/>
+            <line x1="0" y1="0" x2="0" y2="200" stroke="#2b2f42"/>
+            <text x="0" y="214" fill="#9aa2b1" font-size="12">Day →</text>
+            <text x="-10" y="12" fill="#9aa2b1" font-size="12" transform="rotate(-90 -10,12)">Intensity →</text>
+            <!-- Guide ticks -->
+            <g fill="#2b2f42">
+              <rect x="138" y="0" width="1" height="200"/>
+              <rect x="276" y="0" width="1" height="200"/>
+              <rect x="414" y="0" width="1" height="200"/>
+              <text x="130" y="218" fill="#9aa2b1" font-size="12">21</text>
+              <text x="268" y="218" fill="#9aa2b1" font-size="12">42</text>
+              <text x="406" y="218" fill="#9aa2b1" font-size="12">63</text>
+            </g>
+            <!-- Curve path -->
+            <path d="M0,140
+                     C60,20 110,40 140,120
+                     S230,210 276,100
+                     S360,20 414,120
+                     S520,200 580,140"
+                  fill="none" stroke="url(#curve)" stroke-width="3"/>
+            <!-- Notes -->
+            <text x="40" y="30" fill="#ffd8d8" font-size="12">Stage I: spikes common</text>
+            <text x="200" y="94" fill="#ffe7c2" font-size="12">Stage II: identity rebuild</text>
+            <text x="420" y="112" fill="#ffe7c2" font-size="12">Stage III: action surges</text>
+            <text x="520" y="160" fill="#d7ffea" font-size="12">Stage IV: integration</text>
+          </g>
+        </svg>
+        <p class="small muted">When intensity rises: increase sleep, move your body, journal, and adjust loop count per the ZP manual.</p>
+      </div>
+    </section>
+
+    <!-- Section: Stages -->
+    <section id="stages" class="grid cols-1">
+      <div class="card">
+        <h2>7) The Four Stages — Objectives, Practices, KPIs</h2>
+        <p class="muted">Below are concrete ways to align your actions with each stage’s intent, consistent with the program description.</p>
+      </div>
+
+      <!-- STAGE I -->
+      <div class="card">
+        <div class="stage-header">
+          <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M10 26l8 8M38 10L26 22m0 0l4 4M26 22l-4-4" stroke="#e6b85c" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <rect x="6" y="28" width="14" height="8" rx="2" fill="#c0392b"/>
+            <rect x="28" y="12" width="14" height="8" rx="2" fill="#6c8cf5"/>
+          </svg>
+          <div>
+            <div class="stage-title">Stage I — Total Breakdown</div>
+            <div class="muted small">Dismantle limiting beliefs, fears, traumas; purge unhelpful prior subliminal imprinting; clear the slate.</div>
+          </div>
+        </div>
+        <div class="grid cols-2">
+          <div>
+            <h3>Objectives</h3>
+            <ul class="list">
+              <li>Surface and resolve internal blocks (fear, jealousy, victimhood, laziness, etc.).</li>
+              <li>Create space for a new identity; increase tolerance for discomfort.</li>
+              <li>Stabilize sleep, nutrition, and basic routines.</li>
+            </ul>
+            <h3>Daily Practices</h3>
+            <ul class="list">
+              <li>Listen per ZP guidance. Journal immediately after: “What surfaced? What one action will I take today?”</li>
+              <li>Movement: 30–45 minutes daily (walks or lifting) to metabolize emotions.</li>
+              <li>Detox: minimize numbing habits (doomscrolling, binges). Create a simple replacement (walk, call a friend, 10 push-ups).</li>
+              <li>Consider 1–2 therapy/counseling sessions if heavy material arises.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>KPIs (Track Weekly)</h3>
+            <ul class="list">
+              <li>Sleep average ≥ 7.5 hours</li>
+              <li>Exercise ≥ 3 sessions</li>
+              <li>Journaling ≥ 5 entries</li>
+              <li>1–2 environmental upgrades (cleaning, decluttering, admin tasks)</li>
+            </ul>
+            <div class="danger">
+              If overwhelm spikes: reduce loops per manual, increase rest, and double down on basics (sleep, food, movement).
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE II -->
+      <div class="card">
+        <div class="stage-header">
+          <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M10 38h28M18 30h12M12 38l6-28h12l6 28" stroke="#e6b85c" fill="none" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="16" y="10" width="16" height="6" rx="2" fill="#6c8cf5"/>
+          </svg>
+          <div>
+            <div class="stage-title">Stage II — Total Reprogramming</div>
+            <div class="muted small">Rebuild beliefs, identity, posture, voice; wire in authority, mastery, and sexuality (ethically).</div>
+          </div>
+        </div>
+        <div class="grid cols-2">
+          <div>
+            <h3>Objectives</h3>
+            <ul class="list">
+              <li>Align self-image with the “Khan” archetype: power, status, leadership, strategic thinking.</li>
+              <li>Develop voice, body language, and habits that communicate authority.</li>
+              <li>Understand and wield sexual energy responsibly.</li>
+            </ul>
+            <h3>Daily Practices</h3>
+            <ul class="list">
+              <li>Voice/posture drill (10 minutes): diaphragmatic breaths; read aloud slowly; shoulders relaxed, chin slightly tucked.</li>
+              <li>Wardrobe/grooming: tighten fit and cleanliness; keep it simple and consistent.</li>
+              <li>Communication reps: propose plans with time/place; offer clear choices.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>KPIs (Track Weekly)</h3>
+            <ul class="list">
+              <li>3 voice/posture sessions</li>
+              <li>2 concrete invitations made (social/dating)</li>
+              <li>1–2 grooming/style upgrades</li>
+              <li>One mini-talk or meeting led (work or social)</li>
+            </ul>
+            <div class="callout">
+              Expect identity tests. Hold standards calmly. You don’t argue your new boundaries—you live them.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE III -->
+      <div class="card">
+        <div class="stage-header">
+          <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M8 36l12-24 8 14 12-18" stroke="#2ecc71" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="8" cy="36" r="3" fill="#2ecc71"/>
+            <circle cx="20" cy="12" r="3" fill="#e6b85c"/>
+            <circle cx="28" cy="26" r="3" fill="#e6b85c"/>
+            <circle cx="40" cy="8" r="3" fill="#e6b85c"/>
+          </svg>
+          <div>
+            <div class="stage-title">Stage III — Total Action</div>
+            <div class="muted small">Translate drive and sexuality into decisive execution, leadership, and results.</div>
+          </div>
+        </div>
+        <div class="grid cols-2">
+          <div>
+            <h3>Objectives</h3>
+            <ul class="list">
+              <li>Build momentum through visible, outcome-focused actions.</li>
+              <li>Leverage sexual polarity responsibly in social and dating contexts.</li>
+              <li>Strengthen resilience and conflict handling.</li>
+            </ul>
+            <h3>Daily Practices</h3>
+            <ul class="list">
+              <li>Define 1–3 “ships” per week (deliverables, applications, events hosted).</li>
+              <li>Invite specifically: “Thursday 7pm at [place]. If not, suggest another time.”</li>
+              <li>Consent-forward escalation in dating: ask, wait, respect no; lead with clarity.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>KPIs (Track Weekly)</h3>
+            <ul class="list">
+              <li>One shipped outcome (project, application batch, hosted gathering)</li>
+              <li>10+ meaningful conversations; 1–2 dates (if dating)</li>
+              <li>One conflict handled calmly (work/social)</li>
+            </ul>
+            <div class="success">
+              Waiting for life to come to you will not work on Stage III. Curate the opportunities; then move.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STAGE IV -->
+      <div class="card">
+        <div class="stage-header">
+          <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M8 22l6-8 6 8 6-8 6 8v14H8V22z" fill="#e6b85c" stroke="#8a6a2e"/>
+            <rect x="10" y="30" width="28" height="6" rx="2" fill="#1c1f2c" stroke="#2b2f42"/>
+          </svg>
+          <div>
+            <div class="stage-title">Stage IV — Khan Complete</div>
+            <div class="muted small">Integrate reprogramming + action, add rapid intuitive decisions, independence + strategic connections.</div>
+          </div>
+        </div>
+        <div class="grid cols-2">
+          <div>
+            <h3>Objectives</h3>
+            <ul class="list">
+              <li>Align habits, relationships, and environment with your Khan vision.</li>
+              <li>Practice rapid, confident decision-making guided by inner wisdom.</li>
+              <li>Balance self-reliance with powerful networking.</li>
+            </ul>
+            <h3>Daily/Weekly Practices</h3>
+            <ul class="list">
+              <li>Three rapid decisions weekly (commitments you’ve delayed).</li>
+              <li>One strategic coffee per week (mentor/peer/connector).</li>
+              <li>Weekly lifestyle audit: space, schedule, money, relationships—tighten one lever.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>KPIs (Track Weekly)</h3>
+            <ul class="list">
+              <li>3 decisive actions</li>
+              <li>1 strategic connection made</li>
+              <li>1 visible leadership act (post, talk, event, proposal)</li>
+            </ul>
+            <div class="callout">
+              Expect romantic abundance to deepen here. Stay ethical, clear, and considerate.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dominance Ethics -->
+    <section id="dominance" class="grid cols-2">
+      <div class="card">
+        <h2>8) Dominance, Ethically</h2>
+        <ul class="list">
+          <li><strong>Consent and calibration:</strong> Ask explicitly. Look for enthusiastic yes. Stop at no/hesitation.</li>
+          <li><strong>Boundaries without drama:</strong> “That doesn’t work for me. Here’s what does: …” Then pause.</li>
+          <li><strong>Voice, posture, stillness:</strong> Slower pace, warm eye contact, unfussy movements.</li>
+          <li><strong>Leadership as service:</strong> Plans reduce friction for others; competence builds trust.</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Clarity</span><span class="chip">Warmth</span><span class="chip">Responsibility</span><span class="chip">Respect</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>9) Micro-Drills</h2>
+        <ul class="list">
+          <li><span class="kbd">60s AM</span>: 6 deep breaths → posture reset → read 2 lines slowly.</li>
+          <li><span class="kbd">Before tough talk</span>: count to 2 before replying; paraphrase once.</li>
+          <li><span class="kbd">Invite</span>: “I’m free Thu 7 at [place]. If not, suggest another time.”</li>
+          <li><span class="kbd">Boundary</span>: “I won’t be available for that timeline. Options are A by Fri or A+B by Wed.”</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshoot" class="grid cols-2">
+      <div class="card">
+        <h2>10) Troubleshooting & Adjustment</h2>
+        <h3>Signs of heavy reconciliation</h3>
+        <ul class="list">
+          <li>Irritability, brain fog, urge to isolate or binge</li>
+          <li>Sleep disruption, low drive, emotional swings</li>
+        </ul>
+        <h3>Adjustments</h3>
+        <ul class="list">
+          <li>Reduce loops per the ZP manual; take scheduled rest days seriously.</li>
+          <li>Increase sleep and low-intensity movement; hydrate and eat consistently.</li>
+          <li>Keep “tiny actions” alive (one call, one approach, one set at the gym).</li>
+          <li>Talk with a trusted friend or a professional if needed.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>11) When to Progress or Repeat</h2>
+        <ul class="list">
+          <li><strong>Advance to the next stage</strong> after 21+ days when your daily actions fit the stage and intensity is manageable.</li>
+          <li><strong>Extend a stage</strong> if core objectives aren’t met (e.g., no action on Stage III).</li>
+          <li><strong>Repeat the full cycle</strong> later for deeper changes; expect subtler but often stronger shifts.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tools & Checklists -->
+    <section id="tools" class="grid cols-2">
+      <div class="card">
+        <h2>12) Weekly Review (5–10 min)</h2>
+        <ol class="list">
+          <li><strong>Wins:</strong> What moved forward?</li>
+          <li><strong>Resistance:</strong> Where did I hesitate? Why?</li>
+          <li><strong>Metrics:</strong> Sleep, workouts, invites, shipped outcomes.</li>
+          <li><strong>3 Big Rocks:</strong> Choose this week’s must-do actions.</li>
+        </ol>
+        <div class="checklist" id="rocks">
+          <label><input type="checkbox" data-key="rock1"> Big Rock 1 complete</label>
+          <label><input type="checkbox" data-key="rock2"> Big Rock 2 complete</label>
+          <label><input type="checkbox" data-key="rock3"> Big Rock 3 complete</label>
+        </div>
+        <p class="small muted">Reset these at the start of each week.</p>
+      </div>
+
+      <div class="card">
+        <h2>13) Self‑Assessment Radar</h2>
+        <p class="muted small">Rate 1–10 to visualize where to focus this week.</p>
+        <div class="flex">
+          <canvas id="radar" class="radar" width="520" height="420" aria-label="Radar chart"></canvas>
+          <div class="sliders">
+            <div class="row"><span class="mono small">Dominance</span><input type="range" min="1" max="10" value="5" data-axis="0"></div>
+            <div class="row"><span class="mono small">Status</span><input type="range" min="1" max="10" value="5" data-axis="1"></div>
+            <div class="row"><span class="mono small">Sexuality</span><input type="range" min="1" max="10" value="5" data-axis="2"></div>
+            <div class="row"><span class="mono small">Leadership</span><input type="range" min="1" max="10" value="5" data-axis="3"></div>
+            <div class="row"><span class="mono small">Resilience</span><input type="range" min="1" max="10" value="5" data-axis="4"></div>
+          </div>
+        </div>
+        <p class="small muted">Pick one lowest axis and plan 2 specific actions to improve it this week.</p>
+      </div>
+    </section>
+
+    <!-- Sample Stage I Plan -->
+    <section class="grid cols-1">
+      <div class="card">
+        <h2>14) Sample Stage I (21‑Day) Plan</h2>
+        <div class="grid cols-3">
+          <div class="card tight">
+            <h3>Days 1–7: Stabilize</h3>
+            <ul class="list">
+              <li>Listen per ZP schedule; journal after.</li>
+              <li>Walk 30+ minutes daily; lights out target bedtime.</li>
+              <li>Deep clean your room/desk; pay one nagging bill.</li>
+              <li>Reduce doomscrolling; set app timers.</li>
+            </ul>
+          </div>
+          <div class="card tight">
+            <h3>Days 8–14: Expose & Process</h3>
+            <ul class="list">
+              <li>Notice triggers; write “what is this protecting me from?”</li>
+              <li>Therapy/counseling session if needed.</li>
+              <li>3 strength workouts (full-body, 45 min).</li>
+              <li>Two small social reps (low-stakes chats).</li>
+            </ul>
+          </div>
+          <div class="card tight">
+            <h3>Days 15–21: Clear & Commit</h3>
+            <ul class="list">
+              <li>Donate/throw out 15 items; fix 1 admin backlog.</li>
+              <li>Draft Stage II mission: identity traits, voice/posture goals.</li>
+              <li>Schedule two Stage II reps (Toastmasters/gathering).</li>
+              <li>Plan a recovery day: nature, sauna, long walk.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="grid cols-2">
+      <div class="card">
+        <h2>15) FAQ</h2>
+        <h3>Can I skip to Stage III for “results”?</h3>
+        <p>No. The publisher warns against jumping stages. Stages build on each other; skipping reduces effectiveness and increases turbulence.</p>
+        <h3>What if nothing seems to be happening?</h3>
+        <p>That can be “reconciliation fog.” Keep journaling, keep tiny actions, and complete your current stage. Many effects appear after consistency.</p>
+        <h3>Can I stack Khan with other titles?</h3>
+        <p>Avoid stacking unless the ZP manual explicitly permits. Khan is already intense and comprehensive.</p>
+        <h3>How will I know I’m ready for Stage IV?</h3>
+        <p>When daily behavior reflects the prior stages: clearer standards (II), steady action (III), and manageable intensity.</p>
+      </div>
+      <div class="card">
+        <h2>16) Ethical Guardrails</h2>
+        <ul class="list">
+          <li>Consent must be explicit and ongoing—no pressure, ever.</li>
+          <li>Use influence to clarify and uplift; never to corner or manipulate.</li>
+          <li>Protect yourself and others; avoid seeking conflict.</li>
+        </ul>
+        <div class="success">
+          Power plus responsibility is the Khan standard.
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2025 — Field Manual for “Khan — Love and War” (based on your provided description). Results vary. Always defer to the official ZP instructions.
+    </div>
+  </main>
+
+  <script>
+    // Simple localStorage for checklists
+    (function(){
+      function initChecklist(rootId){
+        const root = document.getElementById(rootId);
+        if(!root) return;
+        root.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+          const key = 'khan_'+cb.dataset.key;
+          cb.checked = localStorage.getItem(key) === '1';
+          cb.addEventListener('change', ()=> localStorage.setItem(key, cb.checked?'1':'0'));
+        });
+      }
+      initChecklist('qs');
+      initChecklist('rocks');
+    })();
+
+    // Radar chart
+    (function(){
+      const canvas = document.getElementById('radar');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const axes = ["Dominance","Status","Sexuality","Leadership","Resilience"];
+      const state = [5,5,5,5,5];
+      const sliders = document.querySelectorAll('input[type="range"][data-axis]');
+      sliders.forEach(sl=>{
+        sl.addEventListener('input', ()=>{
+          state[+sl.dataset.axis] = +sl.value;
+          draw();
+        });
+      });
+
+      function draw(){
+        const w = canvas.width, h = canvas.height;
+        ctx.clearRect(0,0,w,h);
+        const cx = w/2, cy = h/2 + 20, r = Math.min(w,h)*0.34;
+        // background
+        ctx.fillStyle = '#0e1220';
+        ctx.fillRect(0,0,w,h);
+        ctx.strokeStyle = '#1f2433';
+        ctx.strokeRect(0,0,w,h);
+
+        // grid rings
+        for(let i=1;i<=5;i++){
+          ctx.beginPath();
+          for(let a=0;a<axes.length;a++){
+            const ang = (-Math.PI/2) + (a*(2*Math.PI/axes.length));
+            const rr = r*(i/5);
+            const x = cx + rr*Math.cos(ang);
+            const y = cy + rr*Math.sin(ang);
+            if(a===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+          }
+          ctx.closePath();
+          ctx.strokeStyle = '#2b2f42';
+          ctx.stroke();
+        }
+
+        // axes lines and labels
+        ctx.font = '12px system-ui, -apple-system, Segoe UI, Roboto, Arial';
+        ctx.fillStyle = '#c7ccdb';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        for(let a=0;a<axes.length;a++){
+          const ang = (-Math.PI/2) + (a*(2*Math.PI/axes.length));
+          const x = cx + r*Math.cos(ang);
+          const y = cy + r*Math.sin(ang);
+          ctx.beginPath();
+          ctx.moveTo(cx,cy); ctx.lineTo(x,y);
+          ctx.strokeStyle = '#2b2f42'; ctx.stroke();
+
+          const lx = cx + (r+28)*Math.cos(ang);
+          const ly = cy + (r+28)*Math.sin(ang);
+          ctx.fillStyle = '#9aa2b1';
+          ctx.fillText(axes[a], lx, ly);
+        }
+
+        // data polygon
+        ctx.beginPath();
+        for(let a=0;a<axes.length;a++){
+          const ang = (-Math.PI/2) + (a*(2*Math.PI/axes.length));
+          const rr = r*(state[a]/10);
+          const x = cx + rr*Math.cos(ang);
+          const y = cy + rr*Math.sin(ang);
+          if(a===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.closePath();
+        const grad = ctx.createLinearGradient(0,0,0,h);
+        grad.addColorStop(0,'rgba(230,184,92,0.35)');
+        grad.addColorStop(1,'rgba(108,140,245,0.25)');
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.strokeStyle = '#e6b85c';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
